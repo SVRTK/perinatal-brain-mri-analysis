@@ -15,6 +15,9 @@ Development of these analysis tools was supported by projects led by Prof Mary R
 
 
 
+<img src="info/multi-bounti-3t.jpg" alt="AUTOSVRTKEXAMPLE" height="400" align ="center" />
+
+
 Auto processing scripts 
 ------------------------
 
@@ -23,9 +26,6 @@ Auto processing scripts
 
 
 **AUTOMATED 3D T2w BRAIN SEGMENTATION:**
-
-
-<img src="info/plic-7t-pipeline.jpg" alt="AUTOSVRTKEXAMPLE" height="400" align ="center" />
 
 *Input data requirements:*
 - sufficient SNR and image quality, no extreme shading artifacts
