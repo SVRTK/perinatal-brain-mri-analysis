@@ -1,4 +1,4 @@
-Scripts for automated neonatal brain analysis for fetal and neonatal MRI
+Scripts for automated brain analysis for fetal and neonatal MRI
 ====================
 
 This repository contains the pipelines for [MONAI](https://github.com/Project-MONAI/MONAI)-based automated analysis for fetal and neonatal brain MRI executed within [SVRTK dockers](https://hub.docker.com/r/fetalsvrtk/svrtk).
