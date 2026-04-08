@@ -1,7 +1,7 @@
 Automated AI analysis tools for fetal and neonatal brain MRI
 ====================
 
-This repository contains the pipelines for [MONAI](https://github.com/Project-MONAI/MONAI)-based automated analysis for fetal and neonatal brain MRI executed within [SVRTK dockers](https://hub.docker.com/r/fetalsvrtk/svrtk).
+This repository contains AI pipelines for [MONAI](https://github.com/Project-MONAI/MONAI)-based automated analysis for fetal and neonatal brain MRI.
 
 
 - The repository, scripts and models were designed and created at the Department of Early Life Imaging, King's College London.
