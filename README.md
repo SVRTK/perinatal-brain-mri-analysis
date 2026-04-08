@@ -1,17 +1,17 @@
-AURORA: automated analysis for fetal and neonatal brain MRI
+Automated AI analysis tools for fetal and neonatal brain MRI
 ====================
 
 This repository contains the pipelines for [MONAI](https://github.com/Project-MONAI/MONAI)-based automated analysis for fetal and neonatal brain MRI executed within [SVRTK dockers](https://hub.docker.com/r/fetalsvrtk/svrtk).
 
 
-- The repository, scripts and DL models were designed and created at the Department of Early Life Imaging, King's College London.
+- The repository, scripts and models were designed and created at the Department of Early Life Imaging, King's College London.
 
   
 - Please email alena.uus (at) kcl.ac.uk if in case of any questions.
 
 
 
-Development of these analysis tools was supported by projects led by Prof Mary Rutherford, Dr Lisa Story, Prof Tomoki Arichi, Prof David Edwards and Prof Jo Hajnal.
+Development of these processing and analysis tools was supported by projects led by Prof Mary Rutherford, Dr Lisa Story, Prof Tomoki Arichi, Prof David Edwards and Prof Jo Hajnal.
 
 
 
@@ -22,7 +22,7 @@ Auto processing scripts
 ------------------------
 
 
-**The automated docker tags are _fetalsvrtk/svrtk:7t_brain_analysis_amd_ (AMD systems only)**
+**The automated docker tags are _fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd_ (AMD systems only)**
 
 
 **AUTOMATED 3D T2w BRAIN SEGMENTATION:**
@@ -41,10 +41,10 @@ Note: you will need >16GB GPU
 
 ```bash
 
-docker pull fetalsvrtk/svrtk:aurora
+docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
 
 #auto multi-ROI brain tissue segmentation: neonatal
-docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:7t_brain_analysis_amd sh -c ' bash /home/7t-brain-analysis/scripts/run-7t-neo-brain-segmentation-ic-multi-bounti-042026.sh /home/data/[path_to_t2w_recon.nii.gz] /home/data/[path_to_tmp_processing_folder] /home/data/[path_to_output_multi_tissue_label.nii.gz] /home/data/[path_to_output_ic_wm_label.nii.gz] ; '
+docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/7t-brain-analysis/scripts/run-7t-neo-brain-segmentation-ic-multi-bounti-042026.sh [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_label.nii.gz] [/home/data/path_to_output_ic_wm_label.nii.gz] ; '
 
 
 ```
