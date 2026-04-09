@@ -1,0 +1,58 @@
+################################################
+# ITK-SnAP Label Description File
+# File format: 
+# IDX   -R-  -G-  -B-  -A--  VIS MSH  LABEL
+# Fields: 
+#    IDX:   Zero-based index 
+#    -R-:   Red color component (0..255)
+#    -G-:   Green color component (0..255)
+#    -B-:   Blue color component (0..255)
+#    -A-:   Label transparency (0.00 .. 1.00)
+#    VIS:   Label visibility (0 or 1)
+#    MSH:   Label mesh visibility (0 or 1)
+#  LABEL:   Label description 
+################################################
+    0     0    0    0        0  0  0    "Clear Label"
+    1     4   51  255        1  1  1    "1 Frontal Lobe GM - R"
+    2    21  144  156        1  1  1    "2 Frontal Lobe GM - L"
+    3    99   22  167        1  1  1    "3 Parietal Lobe GM - R"
+    4   103   66  230        1  1  1    "4 Parietal Lobe GM - L"
+    5   176   51  120        1  1  1    "5 Occipital Lobe GM - R"
+    6   190   72    8        1  1  1    "6 Occipital Lobe GM - L"
+    7    36  131   99        1  1  1    "7 Insular Cortex GM - R"
+    8    23   38   95        1  1  1    "8 Insular Cortex GM - L"
+    9    90   40   55        1  1  1    "9 Temporal Lobe GM - R"
+   10   131   31   44        1  1  1    "10 Temporal Lobe GM - L"
+   11   226  121    9        1  1  1    "11 Cingulate Gyrus GM - R"
+   12   212   33   20        1  1  1    "12 Cingulate Gyrus GM - L"
+   13   217   75   59        1  1  1    "13 Frontal Lobe WM - R"
+   14   188  113  217        1  1  1    "14 Frontal Lobe WM - L"
+   15    87  224  239        1  1  1    "15 Parietal Lobe WM - R"
+   16   171   56   91        1  1  1    "16 Parietal Lobe WM - L"
+   17   212  122  212        1  1  1    "17 Occipital Lobe WM - R"
+   18   233  122  174        1  1  1    "18 Occipital Lobe WM - L"
+   19   167   90  162        1  1  1    "19 Sub-Insular WM - R"
+   20   171  107  130        1  1  1    "20 Sub-Insular WM - L"
+   21   147  112  219        1  1  1    "21 Temporal Lobe WM - R"
+   22    55  150  190        1  1  1    "22 Temporal Lobe WM - L"
+   23   120   34  185        1  1  1    "23 Cingulate Gyrus WM - R"
+   24    29   94  199        1  1  1    "24 Cingulate Gyrus WM - L"
+   25   255  191    0        1  1  1    "25 Corpus Callosum"
+   26   255  255  255     0.51  1  1    "26 Intracerebral Background"
+   27   149  132   39        1  1  1    "27 Brainstem"
+   28   153   47   33        1  1  1    "28 Cerebellar Hemisphere - R"
+   29    96    0  128        1  1  1    "29 Cerebellar Hemisphere - L"
+   30   134  176   92        1  1  1    "30 Cerebellar Vermis"
+   31   149    6   78        1  1  1    "31 Caudate Nucleus - R"
+   32   131   63   24        1  1  1    "32 Caudate Nucleus - L"
+   33   140   35   38        1  1  1    "33 Lentiform Nucleus - R"
+   34   141   32  158        1  1  1    "34 Lentiform Nucleus - L"
+   35   135   47  176        1  1  1    "35 Thalamus - R"
+   36   162   52  104        1  1  1    "36 Thalamus - L"
+   37   156  255  161     0.95  1  1    "37 Extracerebral CSF - R"
+   38   174  219  255        1  1  1    "38 Extracerebral CSF - L"
+   39    92  167  221        1  1  1    "39 Lateral Ventricle - R"
+   40   115  212  175        1  1  1    "40 Lateral Ventricle - L"
+   41   112  139  248        1  1  1    "41 Cavum Septum Pellucidum"
+   42   171   62   25        1  1  1    "42 Third Ventricle"
+   43   169   82  226        1  1  1    "43 Fourth Ventricle"
