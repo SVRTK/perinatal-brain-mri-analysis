@@ -15,7 +15,7 @@ Development of these processing and analysis tools was supported by projects led
 
 
 
-<img src="info/multi-bounti-3t.jpg" alt="AUTOSVRTKEXAMPLE" height="400" align ="center" />
+<img src="info/multi-bounti-3t-full.jpg" alt="AUTOSVRTKEXAMPLE" height="400" align ="center" />
 
 
 
