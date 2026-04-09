@@ -25,7 +25,7 @@ Auto processing scripts
 **The automated docker tags are _fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd_ (AMD systems only)**
 
 
-**AUTOMATED 3D T2w BRAIN SEGMENTATION:**
+**AUTOMATED Multi-BOUNTI SEGMENTATION FOR 3D T2w BRAIN MRI:**
 
 *Input data requirements:*
 - sufficient SNR and image quality, no extreme shading artifacts
