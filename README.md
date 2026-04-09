@@ -43,8 +43,21 @@ Note: you will need >16GB GPU
 
 docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
 
-#auto multi-ROI brain tissue segmentation: neonatal
-docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/7t-brain-analysis/scripts/run-7t-neo-brain-segmentation-ic-multi-bounti-042026.sh [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_label.nii.gz] [/home/data/path_to_output_ic_wm_label.nii.gz] ; '
+
+#auto Multi-BOUNTI brain tissue segmentation: fetal
+docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal_brain_mri_analysis/scripts/run-multi-bounti-fetal-brain-segmentation-2026.sh [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_bounti_label.nii.gz]  ; '
+
+
+#auto Multi-BOUNTI brain tissue segmentation: neonatal
+docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal_brain_mri_analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026.sh [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_bounti_label.nii.gz]  ; '
+
+
+#volumetry reporting for Multi-BOUNTI in .html: fetal
+docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal_brain_mri_analysis/scripts/scripts/auto-reporting-multi-bounti-brain-volumetry-fetal.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
+
+
+#volumetry reporting for Multi-BOUNTI in .html: neonatal
+docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal_brain_mri_analysis/scripts/scripts/auto-reporting-multi-bounti-brain-volumetry-neo.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
 
 
 ```
@@ -53,7 +66,7 @@ docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,tar
 License
 -------
 
-The AURORA code and all scripts are distributed under the terms of the
+The code and model weights are distributed under the terms of the
 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation version 3 of the License. 
 
 This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
