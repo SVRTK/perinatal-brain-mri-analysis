@@ -42,6 +42,10 @@ Auto processing scripts
 
 Note: you will need >16GB GPU
 
+
+**PLEASE RUN IT DIRECTLY VIA OUR DOCKER:**
+
+
 ```bash
 
 docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
