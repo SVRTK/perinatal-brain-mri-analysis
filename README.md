@@ -38,8 +38,8 @@ Auto processing scripts
 - 20-39 weeks GA: fetal
 - no extreme structural anomalies
 - 3T
-- 0.5mm resolution (please resample all images before running segmentation)
-
+- **0.5mm resolution (please resample all images before running segmentation)**
+  
 Note: you will need >16GB GPU
 
 
