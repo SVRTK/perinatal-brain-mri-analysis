@@ -31,11 +31,12 @@ Auto processing scripts
 
 *Input data requirements:*
 - sufficient SNR and image quality, no extreme shading artifacts
-- good quality 3D SVR 
+- good quality 3D SVR
+- fetal TE=250ms - dHCP protocol 
 - full ROI coverage
 - standard radiological space
 - 25-45 weeks PMA: neonatal
-- 20-39 weeks GA: fetal
+- 22-39 weeks GA: fetal
 - no extreme structural anomalies
 - 3T
 - **0.5mm resolution (please resample all images before running segmentation)**
