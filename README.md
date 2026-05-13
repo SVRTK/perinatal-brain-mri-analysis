@@ -27,7 +27,7 @@ Auto processing scripts
 **The automated docker tags are _fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd_ (AMD systems only)**
 
 
-**AUTOMATED Multi-BOUNTI SEGMENTATION FOR 3D T2w BRAIN MRI:**
+**AUTOMATED Multi-BOUNTI SEGMENTATION FOR 3D T2W BRAIN MRI:**
 
 *Input data requirements:*
 - sufficient SNR and image quality, no extreme shading artifacts
@@ -39,7 +39,7 @@ Auto processing scripts
 - 22-39 weeks GA: fetal
 - no extreme structural anomalies
 - 3T
-- **0.5mm resolution (please resample all images before running segmentation)**
+- **0.5mm resolution (please resample or run with 0.5mm reconstructi for all images before running segmentation)**
   
 Note: you will need >16GB GPU
 
@@ -71,6 +71,33 @@ docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/
 ```
 
 
+
+
+**AUTOMATED SVR RECONSTRUCTION FOR NEONATAL T2W BRAIN MRI:**
+
+*Input data requirements:*
+- 2-4 T2w stacks
+- no extreme motion artifacts (better to exclude low quality stacks)
+- sufficient ROI oversampling
+- template selection: best quality stack with full brain coverage
+- please run with 0.5mm output resolution
+
+**PLEASE RUN IT DIRECTLY VIA OUR DOCKER:**
+
+
+
+```bash
+
+docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
+
+
+#auto neonatal brain SVR reconstruction (Kuklisova-Murgasova,2012)
+
+docker run --rm --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mkdir out ; cd out ; mirtk reconstruct ../name_for_output_svr.nii.gz [number_of_stacks; e.g., 3] ../input_stack1.nii.gz ../input_stack2.nii.gz ../input_stackN.nii.gz -default_thickness [slice_thickness; e.g., 3.0 -resolution 1.0 -iterations 2 -sr_iterations 3 -remove_black_background -svr_only -template ../template_stack.nii.gz ; chmod 777 ../name_for_output_svr.nii.gz ;  '
+
+
+```
+
 License
 -------
 
@@ -88,6 +115,9 @@ In case you found this repository useful please give appropriate credit to the s
 
 **Multi-BOUNTI segmentation:**
 > Uus, A., Fukami-Gartner, A., Kyriakopoulou, V., Cromb, D., Morgan, T., Arulkumaran, S., Egloff Collado, A., Luis, A., Bos, R., Makropoulos, A., Schuh, A., Robinson, E., Sousa, H., Deprez, M., Cordero-Grande, L., Bradshaw, C., Colford, K., Hutter, J., Price, A., O’Muircheartaigh, J., Hammers, A., Rueckert, D., Counsell, S., McAlonan, G., Arichi, T., Edwards, A. D., Hajnal, J. V., Rutherford, M. A., Story, L. (2026). Multi-BOUNTI: Multi-lobe Brain vOlUmetry and segmeNtation for feTal and neonatal MRI. medRxiv, 2026.04.21.26351376. https://doi.org/10.64898/2026.04.21.26351376
+
+**Neonatal brain reconstruction:**
+> Kuklisova-Murgasova, M., Quaghebeur, G., Rutherford, M. A., Hajnal, J. V., & Schnabel, J. A. (2012). Reconstruction of fetal brain MRI with intensity matching and complete outlier removal. Medical Image Analysis, 16(8), 1550–1564.: https://doi.org/10.1016/j.media.2012.07.004
 
 
 Disclaimer
