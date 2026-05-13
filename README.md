@@ -39,7 +39,7 @@ Auto processing scripts
 - 22-39 weeks GA: fetal
 - no extreme structural anomalies
 - 3T
-- **0.5mm resolution (please resample or run with 0.5mm reconstructi for all images before running segmentation)**
+- **!!! 0.5mm resolution (please reconstruct to 0.5mm isotropic (see below) or resample to 0.5mm before running segmentation)**
   
 Note: you will need >16GB GPU
 
@@ -52,19 +52,19 @@ Note: you will need >16GB GPU
 docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
 
 
-#auto Multi-BOUNTI brain tissue segmentation: fetal
+# auto Multi-BOUNTI brain tissue segmentation: fetal
 docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-fetal-brain-segmentation-2026.sh [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_bounti_label.nii.gz]  ; '
 
 
-#auto Multi-BOUNTI brain tissue segmentation: neonatal
+# auto Multi-BOUNTI brain tissue segmentation: neonatal
 docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026.sh [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_bounti_label.nii.gz]  ; '
 
 
-#volumetry reporting for Multi-BOUNTI in .html: fetal
+# volumetry reporting for Multi-BOUNTI in .html: fetal
 docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal-brain-mri-analysis/scripts/scripts/auto-reporting-multi-bounti-brain-volumetry-fetal.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
 
 
-#volumetry reporting for Multi-BOUNTI in .html: neonatal
+# volumetry reporting for Multi-BOUNTI in .html: neonatal
 docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal-brain-mri-analysis/scripts/scripts/auto-reporting-multi-bounti-brain-volumetry-neo.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
 
 
@@ -85,15 +85,19 @@ docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/
 **PLEASE RUN IT DIRECTLY VIA OUR DOCKER:**
 
 
-
 ```bash
 
 docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
 
 
-#auto neonatal brain SVR reconstruction (Kuklisova-Murgasova,2012)
+# auto neonatal brain SVR reconstruction (Kuklisova-Murgasova,2012)
 
-docker run --rm --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mkdir out ; cd out ; mirtk reconstruct ../name_for_output_svr.nii.gz [number_of_stacks; e.g., 3] ../input_stack1.nii.gz ../input_stack2.nii.gz ../input_stackN.nii.gz -default_thickness [slice_thickness; e.g., 3.0 -resolution 1.0 -iterations 2 -sr_iterations 3 -remove_black_background -svr_only -template ../template_stack.nii.gz ; chmod 777 ../name_for_output_svr.nii.gz ;  '
+docker run --rm --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mkdir out ; cd out ; mirtk reconstruct ../name_for_output_svr.nii.gz [number_of_stacks; e.g., 3] ../input_stack1.nii.gz ../input_stack2.nii.gz ../input_stackN.nii.gz -default_thickness [slice_thickness; e.g., 1.5] -resolution 0.5 -iterations 2 -sr_iterations 3 -remove_black_background -svr_only -template ../template_stack.nii.gz ; chmod 777 ../name_for_output_svr.nii.gz ;  '
+
+
+# EXAMPLE
+
+docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mkdir out ; cd out ; mirtk reconstruct ../output_svr.nii.gz 2 ../input_stack1.nii.gz ../input_stack2.nii.gz -default_thickness 1.0 -resolution 0.5 -iterations 2 -sr_iterations 3 -remove_black_background -svr_only -template ../input_stack1.nii.gz ; chmod 777 ../output_svr.nii.gz ;  '
 
 
 ```
