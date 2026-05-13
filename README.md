@@ -10,7 +10,7 @@ This repository contains DL pipelines for [MONAI](https://github.com/Project-MON
 - Please email alena.uus (at) kcl.ac.uk if in case of any questions.
 
 
-- NOTE: this is a new methods and we would be very greatful for your feedback so that it can be improved! Please email us.
+**- NOTE: this is a new methods and we would be very grateful for your feedback so that it can be improved! Please email us.**
 
 
 
