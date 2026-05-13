@@ -71,6 +71,14 @@ docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/
 ```
 
 
+**EXAMPLE FOR NEONATAL SEGMENTATION:**
+
+```bash
+
+docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026.sh /home/data/neo_svr_recon.nii.gz /home/data/tmp /home/data/multi_tissue_bounti_label.nii.gz  ; '
+
+```
+
 
 
 **AUTOMATED SVR RECONSTRUCTION FOR NEONATAL T2W BRAIN MRI:**
@@ -91,16 +99,18 @@ docker pull fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd
 
 
 # auto neonatal brain SVR reconstruction (Kuklisova-Murgasova,2012)
-
 docker run --rm --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mkdir out ; cd out ; mirtk reconstruct ../name_for_output_svr.nii.gz [number_of_stacks; e.g., 3] ../input_stack1.nii.gz ../input_stack2.nii.gz ../input_stackN.nii.gz -default_thickness [slice_thickness; e.g., 1.5] -resolution 0.5 -iterations 1 -sr_iterations 3 -remove_black_background -svr_only -template ../template_stack.nii.gz ; chmod 777 ../name_for_output_svr.nii.gz ;  '
 
+```
 
-# EXAMPLE
+**EXAMPLE:**
+
+```bash
 
 docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mkdir out ; cd out ; mirtk reconstruct ../output_svr.nii.gz 2 ../input_stack1.nii.gz ../input_stack2.nii.gz -default_thickness 1.0 -resolution 0.5 -iterations 2 -sr_iterations 3 -remove_black_background -svr_only -template ../input_stack1.nii.gz ; chmod 777 ../output_svr.nii.gz ;  '
 
-
 ```
+
 
 License
 -------
