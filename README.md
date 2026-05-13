@@ -10,6 +10,9 @@ This repository contains DL pipelines for [MONAI](https://github.com/Project-MON
 - Please email alena.uus (at) kcl.ac.uk if in case of any questions.
 
 
+- NOTE: this is a new methods and we would be very greatful for your feedback so that it can be improved! Please email us.
+
+
 
 Development of these processing and analysis tools was supported by projects led by Prof Mary Rutherford, Dr Lisa Story, Prof Tomoki Arichi, Prof David Edwards and Prof Jo Hajnal.
 
