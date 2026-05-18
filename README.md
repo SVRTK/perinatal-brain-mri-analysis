@@ -10,7 +10,11 @@ This repository contains DL pipelines for [MONAI](https://github.com/Project-MON
 - Please email alena.uus (at) kcl.ac.uk if in case of any questions.
 
 
-**- NOTE: this is a new methods and we would be very grateful for your feedback so that it can be improved! Please email us.**
+**- IMPORTANT NOTES:**
+
+**- this is a new methods and we would be very grateful for your feedback so that it can be improved! Please email us.**
+
+**- the current version of the pipeline was trained on dHCP datasets only - it might not work on other acquisitions.**
 
 
 
