@@ -89,14 +89,14 @@ docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datas
 ```
 
 
-   
 
-**FOR FETAL 3D SVR BRAIN RECONSTRUCTION PLEASE GO TO: https://github.com/SVRTK/auto-proc-svrtk**
-
-
-   
 
 **AUTOMATED SVR RECONSTRUCTION FOR NEONATAL T2W BRAIN MRI:**
+   
+
+**- FETAL SVR RECONSTRUCTION - PLEASE GO TO: https://github.com/SVRTK/auto-proc-svrtk**
+
+**- NEONATAL SVR RECONSTRUCTION:**
 
 *Input data requirements:*
 - 2-4 T2w stacks
@@ -104,8 +104,6 @@ docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datas
 - sufficient ROI oversampling
 - template selection: best quality stack with full brain coverage
 - please run with 0.5mm output resolution
-
-**PLEASE RUN IT DIRECTLY VIA OUR DOCKER:**
 
 
 ```bash
