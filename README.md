@@ -84,7 +84,7 @@ docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/
 
 ```bash
 
-docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026.sh /home/data/neo_svr_recon.nii.gz /home/data/tmp /home/data/multi_tissue_bounti_label.nii.gz  ; '
+docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026-dhcp.sh /home/data/neo_svr_recon.nii.gz /home/data/tmp /home/data/multi_tissue_bounti_label.nii.gz  ; '
 
 ```
 
