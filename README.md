@@ -125,28 +125,6 @@ docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=
 ```
 
 
-   
-   
-
-**AUTOMATED BRAIN SURFACE RECONSTRUCTION FROM MULTI-BOUNTI (BASED ON DRAW-EM):**
-
-*Notes:*
-- please use the specific input ID format: e.g., **sub-060_ses-01**
-- please QC, refine the input segmentations before running surfaces
-
-```bash
-
-docker pull fetalsvrtk/surface:multi_bounti_2026
- 
-docker run --rm --mount type=bind,source=[full_path_to_folder_on_computer],target=/home/data  fetalsvrtk/surface:multi_bounti_2026 sh -c ' bash /software/surface-scripts/multi-bounti-surface-generation-042026-v7.sh sub-[subject_id]_ses-[session_number] /home/data/[full_path_to_bounti_label_within_docker_mount] /home/data/[full_path_to_bounti_label_within_docker_mount] /home/data/[full_path_to_output_surface_folder_within_docker_mount] 0  ; '
- 
-# example
-
-docker run --rm --mount type=bind,source=/scratch/7t/alena/surface-tests-042026,target=/home/data  fetalsvrtk/surface:multi_bounti_2026 sh -c ' bash /home/data/multi-bounti-surface-generation-042026-v7.sh sub-060_ses-01 /home/data/bounti-lab/bounti-lab-sh-neo-060_ses-01_7t_recon.nii.gz /home/data/bounti-lab/bounti-lab-sh-neo-060_ses-01_7t_recon.nii.gz /home/data/surface-neo-060_ses-01 0  ;
-
-
-```
-
 
 License
 -------
@@ -168,9 +146,6 @@ In case you found this repository useful please give appropriate credit to the s
 
 **Neonatal brain reconstruction:**
 > Kuklisova-Murgasova, M., Quaghebeur, G., Rutherford, M. A., Hajnal, J. V., & Schnabel, J. A. (2012). Reconstruction of fetal brain MRI with intensity matching and complete outlier removal. Medical Image Analysis, 16(8), 1550–1564.: https://doi.org/10.1016/j.media.2012.07.004
-
-**Draw-EM brain surface reconstruction:**
-> Makropoulos A, Robinson EC, Schuh A, Wright R, Fitzgibbon S, Bozek J, Counsell SJ, Steinweg J, Vecchiato K, Passerat-Palmbach J, Lenz G, Mortari F, Tenev T, Duff EP, Bastiani M, Cordero-Grande L, Hughes E, Tusor N, Tournier JD, Hutter J, Price AN, Teixeira RPAG, Murgasova M, Victor S, Kelly C, Rutherford MA, Smith SM, Edwards AD, Hajnal JV, Jenkinson M, Rueckert D. The developing human connectome project: A minimal processing pipeline for neonatal cortical surface reconstruction. Neuroimage. 2018 Jun;173:88-112. doi: [https://doi.org/10.1016/j.neuroimage.2018.01.054](https://doi.org/10.1016/j.neuroimage.2018.01.054).
 
 
 Disclaimer
