@@ -89,6 +89,13 @@ docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datas
 ```
 
 
+**EXAMPLE HOW TO RESAMPLE AN IMAGE TO 0.5MM RESOLUTION:**
+
+```bash
+
+docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mirtk resample-image org.nii.gz resampled.nii.gz -size 0.5 0.5 0.5 ; mirtk nan resampled.nii.gz 1000000  ; chmod 777 resampled.nii.gz ;  '
+
+```
 
 
 **AUTOMATED SVR RECONSTRUCTION FOR NEONATAL T2W BRAIN MRI:**
