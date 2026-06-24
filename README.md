@@ -12,7 +12,7 @@ This repository contains DL pipelines for [MONAI](https://github.com/Project-MON
 
 **- IMPORTANT NOTES:**
 
-**- this is a new methods and we would be very grateful for your feedback so that it can be improved! Please email us.**
+**- this is a new method and we would be very grateful for your feedback so that it can be improved! Please email us.**
 
 **- the current version of the pipeline was trained on dHCP datasets only - it might not work on other acquisitions.**
 
@@ -84,11 +84,18 @@ docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/
 
 ```bash
 
-docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026.sh /home/data/neo_svr_recon.nii.gz /home/data/tmp /home/data/multi_tissue_bounti_label.nii.gz  ; '
+docker run --rm --gpus all --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026-dhcp.sh /home/data/neo_svr_recon.nii.gz /home/data/tmp /home/data/multi_tissue_bounti_label.nii.gz  ; '
 
 ```
 
 
+**EXAMPLE HOW TO RESAMPLE AN IMAGE TO 0.5MM RESOLUTION:**
+
+```bash
+
+docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' cd /home/data ; mirtk resample-image org.nii.gz resampled.nii.gz -size 0.5 0.5 0.5 ; mirtk nan resampled.nii.gz 1000000  ; chmod 777 resampled.nii.gz ;  '
+
+```
 
 
 **AUTOMATED SVR RECONSTRUCTION FOR NEONATAL T2W BRAIN MRI:**
@@ -125,8 +132,6 @@ docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=
 ```
 
 
-   
-   
 
 **AUTOMATED BRAIN SURFACE RECONSTRUCTION FROM MULTI-BOUNTI (BASED ON DRAW-EM):**
 
