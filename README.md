@@ -79,8 +79,28 @@ docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/
 
 ```
 
+**ADDITIONAL OPTIONS FOR BET EXTRACTION AND INITALISATION WITH EXTERNAL BET:**
 
-**EXAMPLE FOR NEONATAL SEGMENTATION:**
+```bash
+
+# fetal brain extraction 
+sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-fetal-brain-bet-extraction-2026-general.sh [N4 correction: 1 - yes; 0 - no] [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_bet_label.nii.gz]  ; '
+
+# neonatal brain extraction 
+sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-neo-brain-bet-extraction-2026-general.sh [N4 correction: 1 - yes; 0 - no] [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_bet_label.nii.gz]  ; '
+
+# fetal multi-bounti segmentation initalised with external BET
+sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-fetal-brain-segmentation-2026-with-bet-init.sh [N4 correction: 1 - yes; 0 - no] [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_bet_mask.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_bounti_label.nii.gz]  ; '
+
+# neonatal multi-bounti segmentation initalised with external BET
+sh -c ' bash /home/perinatal-brain-mri-analysis/scripts/run-multi-bounti-neo-brain-segmentation-2026-with-bet-init.sh [N4 correction: 1 - yes; 0 - no] [/home/data/path_to_t2w_recon.nii.gz] [/home/data/path_to_bet_mask.nii.gz] [/home/data/path_to_tmp_processing_folder] [/home/data/path_to_output_multi_tissue_bounti_label.nii.gz]  ; '
+
+
+```
+
+
+
+**EXAMPLE MULTI-BOUNTI SEGMENTATION FOR NEONATAL SEGMENTATION:**
 
 ```bash
 
