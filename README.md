@@ -153,7 +153,20 @@ docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=
 
 
 
-**AUTOMATED BRAIN SURFACE RECONSTRUCTION FROM MULTI-BOUNTI (BASED ON DRAW-EM):**
+**AUTOMATED BRAIN SURFACE RECONSTRUCTION FROM MULTI-BOUNTI:**
+
+
+**For deep learning surface extraction:**
+
+- Please go to the following repository (by Irina Grigorescu):
+[https://github.com/irinagrigorescu/FetalSeg-CoTAN](https://github.com/irinagrigorescu/FetalSeg-CoTAN)
+
+
+
+--------------
+
+
+**For conventional DRAW-Em-based surface extraction:**
 
 *Notes:*
 - please use the specific input ID format: e.g., **sub-060_ses-01**
