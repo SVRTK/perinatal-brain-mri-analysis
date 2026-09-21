@@ -70,11 +70,11 @@ docker run --rm --gpus all --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,tar
 
 
 # volumetry reporting for Multi-BOUNTI in .html: fetal
-docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal-brain-mri-analysis/scripts/scripts/auto-reporting-multi-bounti-brain-volumetry-fetal.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
+docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal-brain-mri-analysis/scripts/auto-reporting-multi-bounti-brain-volumetry-fetal.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
 
 
 # volumetry reporting for Multi-BOUNTI in .html: neonatal
-docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal-brain-mri-analysis/scripts/scripts/auto-reporting-multi-bounti-brain-volumetry-neo.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
+docker run --rm  --mount type=bind,source=LOCATION_ON_YOUR_MACHINE,target=/home/data  fetalsvrtk/svrtk:perinatal_brain_mri_analysis_amd sh -c ' python3 /home/perinatal-brain-mri-analysis/scripts/auto-reporting-multi-bounti-brain-volumetry-neo.py CASE_ID GA DATE /home/data/vol-test/brain-svr-file.nii.gz /home/data/brain-tissue-segmenation-file.nii.gz /home/data/name-for-volumetry-report.html ; chmod 777 /home/data/name-for-volumetry-report.html  '
 
 
 ```
@@ -153,7 +153,20 @@ docker run --rm --mount type=bind,source=/home/au18/folder_with_datasets,target=
 
 
 
-**AUTOMATED BRAIN SURFACE RECONSTRUCTION FROM MULTI-BOUNTI (BASED ON DRAW-EM):**
+**AUTOMATED BRAIN SURFACE RECONSTRUCTION FROM MULTI-BOUNTI:**
+
+
+**For deep learning surface extraction:**
+
+- Please go to the following repository (by Irina Grigorescu):
+[https://github.com/irinagrigorescu/FetalSeg-CoTAN](https://github.com/irinagrigorescu/FetalSeg-CoTAN)
+
+
+
+--------------
+
+
+**For conventional DRAW-Em-based surface extraction:**
 
 *Notes:*
 - please use the specific input ID format: e.g., **sub-060_ses-01**
